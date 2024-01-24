@@ -1,25 +1,29 @@
 #include <iostream>
 using namespace std;
+int t=0;
 int partition(int arr[], int low, int high) {
     int pivot = arr[low];
-    int i = low + 1;
+    int i = low ;
     int j = high;
 
     while (true) {
-        while (i <= j && arr[i] < pivot) {
+        while (i <= j && arr[i] <= pivot) {
             i++;
         }
 
-        while (j >= i && arr[j] > pivot) {
+        while (j >= i && arr[j] >= pivot) {
             j--;
         }
 
         if (i <= j) {
     
             swap(arr[i], arr[j]);
+            
+
         } else {
         
             swap(arr[low], arr[j]);
+            t++;
             return j; 
         }
     }
@@ -56,6 +60,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
+
+    cout<<"Swaped "<<t<<" times";
 
     return 0;
 }
