@@ -59,7 +59,7 @@ public:
 };
 
 int main() {
-    int V = 4;
+    int V = 5;
     Graph g(V);
 
     g.addEdge(0, 1, 10);
@@ -67,7 +67,7 @@ int main() {
     g.addEdge(0, 3, 5);
     g.addEdge(1, 3, 15);
     g.addEdge(2, 3, 4);
-
+    g.addEdge(2,1,1);
     g.kruskalMST();
 
     return 0;
