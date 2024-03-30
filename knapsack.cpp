@@ -7,26 +7,28 @@ int max(int a, int b) {
 
 int main() {
     int n;
-    cout << "Enter the number of items: ";
+    // cout << "Enter the number of items: ";
     cin >> n;
 
     int p[n+1], wt[n+1];
 
+    int m;
+    // cout << "Enter the capacity : ";
+    cin >> m;
+
     
-    cout << "Enter the profit of items:";
+    // cout << "Enter the profit of items:";
     for (int i = 1; i <= n; i++) {
         cin >> p[i];
     }
 
    
-    cout << "Enter the weights of items:";
+    // cout << "Enter the weights of items:";
     for (int i = 1; i <= n; i++) {
         cin >> wt[i];
     }
 
-    int m;
-    cout << "Enter the capacity : ";
-    cin >> m;
+    
 
     int k[n + 1][m + 1];
 
@@ -49,6 +51,6 @@ int main() {
     }
 
     
-    cout << "Maximum profit : " << k[n][m] << endl;
+    cout << k[n][m] << endl;
 
 }

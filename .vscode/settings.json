@@ -2,5 +2,8 @@
     "files.associations": {
         "iostream": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "heapify"
+    ]
 }

@@ -24,21 +24,26 @@ public:
     int findParent(vector<int>& parent, int i) {
         if (parent[i] == -1)
             return i;
-        return findParent(parent, parent[i]);
+        return parent[i] = findParent(parent, parent[i]); 
     }
 
     void unionSets(vector<int>& parent, int x, int y) {
         int xset = findParent(parent, x);
         int yset = findParent(parent, y);
-        parent[xset] = yset;
+        if (xset != yset) {
+            
+            parent[xset] = yset;
+        }
+    }
+
+    static bool compareEdges(const Edge& a, const Edge& b) {
+        return a.weight < b.weight;
     }
 
     void kruskalMST() {
         vector<int> parent(V, -1);
         vector<Edge> result;
-        sort(edges.begin(), edges.end(), [](Edge& a, Edge& b) {
-            return a.weight < b.weight;
-        });
+        sort(edges.begin(), edges.end(), compareEdges);
 
         int e = 0, i = 0;
         while (e < V - 1 && i < edges.size()) {
@@ -59,7 +64,7 @@ public:
 };
 
 int main() {
-    int V = 5;
+    int V = 4; 
     Graph g(V);
 
     g.addEdge(0, 1, 10);
@@ -67,7 +72,8 @@ int main() {
     g.addEdge(0, 3, 5);
     g.addEdge(1, 3, 15);
     g.addEdge(2, 3, 4);
-    g.addEdge(2,1,1);
+    g.addEdge(2, 3, 2);
+
     g.kruskalMST();
 
     return 0;
